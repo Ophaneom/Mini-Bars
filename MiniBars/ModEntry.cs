@@ -21,7 +21,7 @@ namespace MiniBars
 
             Textures.LoadTextures();
 
-            helper.Events.Display.Rendered += Renderer.OnRendered;
+            helper.Events.Display.RenderedWorld += Renderer.OnRendered;
         }
     }
 }

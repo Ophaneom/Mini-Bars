@@ -13,7 +13,7 @@ namespace MiniBars.Framework.Rendering
     public class Renderer
     {
         private static int _verification_range = ModEntry.config.Distance * Game1.pixelZoom;
-        public static void OnRendered(object sender, RenderedEventArgs e)
+        public static void OnRendered(object sender, RenderedWorldEventArgs e)
         {
             if (!Context.IsWorldReady) return;
             if (Game1.activeClickableMenu != null || Game1.currentMinigame != null) return;
