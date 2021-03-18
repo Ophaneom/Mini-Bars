@@ -1,0 +1,10 @@
+﻿{
+  "Name": "Mini Bars",
+  "Author": "Ophaneom",
+  "Version": "1.0.0",
+  "Description": "EMPTY DESCRIPTION",
+  "UniqueID": "Ophaneom.MiniBars",
+  "EntryDll": "MiniBars.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": [  ]
+}
