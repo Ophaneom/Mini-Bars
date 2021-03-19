@@ -144,6 +144,30 @@ namespace MiniBars.Framework.Rendering
                     _current_sprite = Textures.squidkid_theme;
                     _bar_color = new Color(255, 145, 130);
                 }
+                else if (monster is Mummy)
+                {
+
+                }
+                else if (monster is DinoMonster)
+                {
+
+                }
+                else if (monster is Serpent)
+                {
+
+                }
+                else if (monster is DwarvishSentry)
+                {
+
+                }
+                else if (monster is HotHead)
+                {
+
+                }
+                else if (monster is LavaLurk)
+                {
+
+                }
                 else
                 {
                     _current_sprite = Textures.default_theme;

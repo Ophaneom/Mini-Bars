@@ -42,30 +42,31 @@ namespace MiniBars.Framework.Rendering
         {
             IModHelper helper = ModEntry.instance.Helper;
 
-            bar_background = helper.Content.Load<Texture2D>("Assets/Themes/bar_background.png", ContentSource.ModFolder);
+            bar_background = helper.Content.Load<Texture2D>("Assets/Themes/Others/bar_background.png", ContentSource.ModFolder);
 
-            default_theme = helper.Content.Load<Texture2D>("Assets/Themes/default_theme.png", ContentSource.ModFolder);
+            default_theme = helper.Content.Load<Texture2D>("Assets/Themes/Others/default_theme.png", ContentSource.ModFolder);
 
-            greenslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/greenslime_theme.png", ContentSource.ModFolder);
-            blueslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/blueslime_theme.png", ContentSource.ModFolder);
-            redslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/redslime_theme.png", ContentSource.ModFolder);
-            bat_theme = helper.Content.Load<Texture2D>("Assets/Themes/bat_theme.png", ContentSource.ModFolder);
-            frostbat_theme = helper.Content.Load<Texture2D>("Assets/Themes/frostbat_theme.png", ContentSource.ModFolder);
-            lavabat_theme = helper.Content.Load<Texture2D>("Assets/Themes/lavabat_theme.png", ContentSource.ModFolder);
-            bug_theme = helper.Content.Load<Texture2D>("Assets/Themes/bug_theme.png", ContentSource.ModFolder);
-            cavefly_theme = helper.Content.Load<Texture2D>("Assets/Themes/cavefly_theme.png", ContentSource.ModFolder);
-            duggy_theme = helper.Content.Load<Texture2D>("Assets/Themes/duggy_theme.png", ContentSource.ModFolder);
-            grub_theme = helper.Content.Load<Texture2D>("Assets/Themes/grub_theme.png", ContentSource.ModFolder);
-            rockcrab_theme = helper.Content.Load<Texture2D>("Assets/Themes/rockcrab_theme.png", ContentSource.ModFolder);
-            lavacrab_theme = helper.Content.Load<Texture2D>("Assets/Themes/lavacrab_theme.png", ContentSource.ModFolder);
-            stonegolem_theme = helper.Content.Load<Texture2D>("Assets/Themes/stonegolem_theme.png", ContentSource.ModFolder);
-            dust_theme = helper.Content.Load<Texture2D>("Assets/Themes/dust_theme.png", ContentSource.ModFolder);
-            ghost_theme = helper.Content.Load<Texture2D>("Assets/Themes/ghost_theme.png", ContentSource.ModFolder);
-            skeleton_theme = helper.Content.Load<Texture2D>("Assets/Themes/skeleton_theme.png", ContentSource.ModFolder);
-            metalhead_theme = helper.Content.Load<Texture2D>("Assets/Themes/metalhead_theme.png", ContentSource.ModFolder);
-            shadowbrute_theme = helper.Content.Load<Texture2D>("Assets/Themes/shadowbrute_theme.png", ContentSource.ModFolder);
-            shadowshaman_theme = helper.Content.Load<Texture2D>("Assets/Themes/shadowshaman_theme.png", ContentSource.ModFolder);
-            squidkid_theme = helper.Content.Load<Texture2D>("Assets/Themes/squidkid_theme.png", ContentSource.ModFolder);
+            //NORMAL MINES
+            greenslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/greenslime_theme.png", ContentSource.ModFolder);
+            blueslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/blueslime_theme.png", ContentSource.ModFolder);
+            redslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/redslime_theme.png", ContentSource.ModFolder);
+            bat_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/bat_theme.png", ContentSource.ModFolder);
+            frostbat_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/frostbat_theme.png", ContentSource.ModFolder);
+            lavabat_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/lavabat_theme.png", ContentSource.ModFolder);
+            bug_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/bug_theme.png", ContentSource.ModFolder);
+            cavefly_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/cavefly_theme.png", ContentSource.ModFolder);
+            duggy_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/duggy_theme.png", ContentSource.ModFolder);
+            grub_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/grub_theme.png", ContentSource.ModFolder);
+            rockcrab_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/rockcrab_theme.png", ContentSource.ModFolder);
+            lavacrab_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/lavacrab_theme.png", ContentSource.ModFolder);
+            stonegolem_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/stonegolem_theme.png", ContentSource.ModFolder);
+            dust_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/dust_theme.png", ContentSource.ModFolder);
+            ghost_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/ghost_theme.png", ContentSource.ModFolder);
+            skeleton_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/skeleton_theme.png", ContentSource.ModFolder);
+            metalhead_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/metalhead_theme.png", ContentSource.ModFolder);
+            shadowbrute_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/shadowbrute_theme.png", ContentSource.ModFolder);
+            shadowshaman_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/shadowshaman_theme.png", ContentSource.ModFolder);
+            squidkid_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/squidkid_theme.png", ContentSource.ModFolder);
         }
     }
 }

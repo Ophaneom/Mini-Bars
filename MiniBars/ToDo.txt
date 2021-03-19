@@ -1,0 +1,2 @@
+﻿Add references to new sprites.
+Create the shrine sprites.
