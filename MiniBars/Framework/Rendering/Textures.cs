@@ -8,11 +8,10 @@ namespace MiniBars.Framework.Rendering
     public class Textures
     {
         public static Texture2D bar_background;
-
-        public static Texture2D default_theme,
-            greenslime_theme,
+        public static Texture2D hp_sprite;
+        public static Texture2D default_theme;
+        public static Texture2D greenslime_theme,
             blueslime_theme,
-            redslime_theme,
             bat_theme,
             frostbat_theme,
             lavabat_theme,
@@ -30,6 +29,28 @@ namespace MiniBars.Framework.Rendering
             shadowbrute_theme,
             shadowshaman_theme,
             squidkid_theme;
+        public static Texture2D armoredbug_theme,
+            carbonghost_theme,
+            iridiumbat_theme,
+            iridiumcrab_theme,
+            mummy_theme,
+            pepperrex_theme,
+            purpleslime_theme,
+            serpent_theme;
+        public static Texture2D copperslime_theme,
+            hauntedskull_theme,
+            ironslime_theme;
+        public static Texture2D mutantfly_theme,
+            mutantgrub_theme;
+        public static Texture2D wildernessgolem_theme;
+        public static Texture2D dwarvishsentry_theme,
+            falsemagmacap_theme,
+            hothead_theme,
+            lavalurk_theme,
+            magmaduggy_theme,
+            magmasparker_theme,
+            magmasprite_theme,
+            tigerslime_theme;
 
         public static Texture2D GetPixel()
         {
@@ -43,13 +64,13 @@ namespace MiniBars.Framework.Rendering
             IModHelper helper = ModEntry.instance.Helper;
 
             bar_background = helper.Content.Load<Texture2D>("Assets/Themes/Others/bar_background.png", ContentSource.ModFolder);
+            hp_sprite = helper.Content.Load<Texture2D>("Assets/Themes/Others/hp_sprite.png", ContentSource.ModFolder);
 
             default_theme = helper.Content.Load<Texture2D>("Assets/Themes/Others/default_theme.png", ContentSource.ModFolder);
 
             //NORMAL MINES
             greenslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/greenslime_theme.png", ContentSource.ModFolder);
             blueslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/blueslime_theme.png", ContentSource.ModFolder);
-            redslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/redslime_theme.png", ContentSource.ModFolder);
             bat_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/bat_theme.png", ContentSource.ModFolder);
             frostbat_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/frostbat_theme.png", ContentSource.ModFolder);
             lavabat_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/lavabat_theme.png", ContentSource.ModFolder);
@@ -67,6 +88,38 @@ namespace MiniBars.Framework.Rendering
             shadowbrute_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/shadowbrute_theme.png", ContentSource.ModFolder);
             shadowshaman_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/shadowshaman_theme.png", ContentSource.ModFolder);
             squidkid_theme = helper.Content.Load<Texture2D>("Assets/Themes/Normal_Mines/squidkid_theme.png", ContentSource.ModFolder);
+
+            //SKULL CAVERN
+            armoredbug_theme = helper.Content.Load<Texture2D>("Assets/Themes/Skull_Cavern/armoredbug_theme.png", ContentSource.ModFolder);
+            carbonghost_theme = helper.Content.Load<Texture2D>("Assets/Themes/Skull_Cavern/carbonghost_theme.png", ContentSource.ModFolder);
+            iridiumbat_theme = helper.Content.Load<Texture2D>("Assets/Themes/Skull_Cavern/iridiumbat_theme.png", ContentSource.ModFolder);
+            iridiumcrab_theme = helper.Content.Load<Texture2D>("Assets/Themes/Skull_Cavern/iridiumcrab_theme.png", ContentSource.ModFolder);
+            mummy_theme = helper.Content.Load<Texture2D>("Assets/Themes/Skull_Cavern/mummy_theme.png", ContentSource.ModFolder);
+            pepperrex_theme = helper.Content.Load<Texture2D>("Assets/Themes/Skull_Cavern/pepperrex_theme.png", ContentSource.ModFolder);
+            purpleslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Skull_Cavern/purpleslime_theme.png", ContentSource.ModFolder);
+            serpent_theme = helper.Content.Load<Texture2D>("Assets/Themes/Skull_Cavern/serpent_theme.png", ContentSource.ModFolder);
+
+            //QUARRY MINE
+            copperslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Quarry_Mine/copperslime_theme.png", ContentSource.ModFolder);
+            hauntedskull_theme = helper.Content.Load<Texture2D>("Assets/Themes/Quarry_Mine/hauntedskull_theme.png", ContentSource.ModFolder);
+            ironslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Quarry_Mine/ironslime_theme.png", ContentSource.ModFolder);
+
+            //MUTANT BUG LAIR
+            mutantfly_theme = helper.Content.Load<Texture2D>("Assets/Themes/Mutant_Bug_Lair/mutantfly_theme.png", ContentSource.ModFolder);
+            mutantgrub_theme = helper.Content.Load<Texture2D>("Assets/Themes/Mutant_Bug_Lair/mutantgrub_theme.png", ContentSource.ModFolder);
+
+            //WILDERNESS
+            wildernessgolem_theme = helper.Content.Load<Texture2D>("Assets/Themes/Wilderness/wildernessgolem_theme.png", ContentSource.ModFolder);
+
+            //VOLCANO DUNGEON
+            dwarvishsentry_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/dwarvishsentry_theme.png", ContentSource.ModFolder);
+            falsemagmacap_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/falsemagmacap_theme.png", ContentSource.ModFolder);
+            hothead_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/hothead_theme.png", ContentSource.ModFolder);
+            lavalurk_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/lavalurk_theme.png", ContentSource.ModFolder);
+            magmaduggy_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/magmaduggy_theme.png", ContentSource.ModFolder);
+            magmasparker_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/magmasparker_theme.png", ContentSource.ModFolder);
+            magmasprite_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/magmasprite_theme.png", ContentSource.ModFolder);
+            tigerslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/tigerslime_theme.png", ContentSource.ModFolder);
         }
     }
 }

@@ -8,7 +8,8 @@ namespace MiniBars
 {
     public class Config
     {
-        public bool Simple_Bars { get; set; } = true;
+        public bool Simple_Bars { get; set; } = false;
+        public bool Show_Full_Life { get; set; } = false;
         public bool Range_Verification { get; set; } = true;
         public int Distance { get; set; } = 100;
     }

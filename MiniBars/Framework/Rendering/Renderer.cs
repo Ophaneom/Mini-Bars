@@ -30,28 +30,44 @@ namespace MiniBars.Framework.Rendering
 
                 Texture2D _current_sprite;
                 Color _bar_color = new Color(172, 50, 50);
+                Color _border_color = Color.White;
                 int _height = 3;
                 float _current_health = monster.Health;
                 float _current_max_health = Math.Max(monster.Health, monster.MaxHealth);
 
+                ModEntry.instance.Monitor.Log($"Monster Name: {monster.Name}", LogLevel.Info);
+                //ModEntry.instance.Monitor.Log($"Current health: {_current_health} / Max health: {_current_max_health}", LogLevel.Info);
+                //ModEntry.instance.Monitor.Log($"Actual bar: {(Textures.GetPixel().Width * Game1.pixelZoom) * (int)((_current_health / _current_max_health) * 20)} / Max: {(Textures.GetPixel().Width * Game1.pixelZoom) * 20}", LogLevel.Info);
 
-                if (monster is GreenSlime)
+                if (_current_health >= _current_max_health && ModEntry.config.Show_Full_Life) continue;
+
+                if (monster is GreenSlime slime)
                 {
                     if (monster.Name == "Frost Jelly")
                     {
                         _current_sprite = Textures.blueslime_theme;
                         _bar_color = new Color(69, 142, 212);
+                        _border_color = slime.color;
                     }
-                    else if (monster.Name == "Sludge")
+                    else if (monster.Name == "Tiger Slime")
                     {
-                        _current_sprite = Textures.redslime_theme;
-                        _bar_color = new Color(212, 50, 55);
+                        _current_sprite = Textures.tigerslime_theme;
+                        _bar_color = new Color(174, 84, 18);
                     }
                     else
                     {
+                        Color c1 = slime.color;
+                        float cR = c1.R * 1.2f;
+                        float cG = c1.G * 1.2f;
+                        float cB = c1.B * 1.2f;
+                        byte cA = 255;
+                        Color c2 = new Color((int)cR, (int)cG, (int)cB, cA);
+
                         _current_sprite = Textures.greenslime_theme;
-                        _bar_color = new Color(97, 212, 69);
+                        _bar_color = c2;
+                        _border_color = slime.color;
                     }
+                    
                 }
                 else if (monster is Bat)
                 {
@@ -65,30 +81,76 @@ namespace MiniBars.Framework.Rendering
                         _current_sprite = Textures.lavabat_theme;
                         _bar_color = new Color(190, 23, 23);
                     }
+                    else if (monster.Name == "Magma Sprite")
+                    {
+                        _current_sprite = Textures.magmasprite_theme;
+                        _bar_color = new Color(255, 204, 51);
+                    }
+                    else if (monster.Name == "Magma Sparker")
+                    {
+                        _current_sprite = Textures.magmasparker_theme;
+                        _bar_color = new Color(221, 250, 117);
+                    }
+                    else if (monster.Name == "Haunted Skull")
+                    {
+                        _current_sprite = Textures.hauntedskull_theme;
+                        _bar_color = new Color(172, 172, 172);
+                    }
                     else
                     {
                         _current_sprite = Textures.bat_theme;
                     }
                 }
-                else if (monster is Bug)
+                else if (monster is Bug bug)
                 {
-                    _current_sprite = Textures.bug_theme;
-                    _bar_color = new Color(130, 199, 171);
+                    if (bug.isArmoredBug.Value)
+                    {
+                        _current_sprite = Textures.armoredbug_theme;
+                    }
+                    else
+                    {
+                        _current_sprite = Textures.bug_theme;
+                        _bar_color = new Color(130, 199, 171);
+                    }
                     _height = 15;
                 }
                 else if (monster is Fly)
                 {
-                    _current_sprite = Textures.cavefly_theme;
-                    _bar_color = new Color(207, 43, 156);
+                    if (monster.Name == "Mutant Fly")
+                    {
+                        _current_sprite = Textures.mutantfly_theme;
+                        _bar_color = new Color(0, 194, 31);
+                    }
+                    else
+                    {
+                        _current_sprite = Textures.cavefly_theme;
+                        _bar_color = new Color(207, 43, 156);
+                    }
                 }
                 else if (monster is Duggy)
                 {
-                    _current_sprite = Textures.duggy_theme;
+                    if (monster.Name == "Magma Duggy")
+                    {
+                        _current_sprite = Textures.magmaduggy_theme;
+                        _bar_color = new Color(246, 59, 59);
+                    }
+                    else
+                    {
+                        _current_sprite = Textures.duggy_theme;
+                    }
                 }
                 else if (monster is Grub)
                 {
-                    _current_sprite = Textures.grub_theme;
-                    _bar_color = new Color(255, 215, 135);
+                    if (monster.Name == "Mutant Grub")
+                    {
+                        _current_sprite = Textures.mutantgrub_theme;
+                        _bar_color = new Color(75, 242, 63);
+                    }
+                    else
+                    {
+                        _current_sprite = Textures.grub_theme;
+                        _bar_color = new Color(255, 215, 135);
+                    }
                 }
                 else if (monster is RockCrab)
                 {
@@ -103,12 +165,21 @@ namespace MiniBars.Framework.Rendering
                         _current_sprite = Textures.rockcrab_theme;
                     }
                 }
-                else if (monster is RockGolem)
+                else if (monster is RockGolem golem)
                 {
-                    _current_sprite = Textures.stonegolem_theme;
-                    _bar_color = new Color(121, 121, 121);
+                    if (monster.Sprite.CurrentFrame % 4 == 0) continue;
+                    
+                    if (golem.wildernessFarmMonster)
+                    {
+                        _current_sprite = Textures.wildernessgolem_theme;
+                        _bar_color = new Color(78, 62, 41);
+                    }
+                    else
+                    {
+                        _current_sprite = Textures.stonegolem_theme;
+                        _bar_color = new Color(121, 121, 121);
+                    }
                 }
-                //--
                 else if (monster is DustSpirit)
                 {
                     _current_sprite = Textures.dust_theme;
@@ -126,8 +197,16 @@ namespace MiniBars.Framework.Rendering
                 }
                 else if (monster is MetalHead)
                 {
-                    _current_sprite = Textures.metalhead_theme;
-                    _bar_color = new Color(220, 123, 5);
+                    if (monster.Name == "Hot Head")
+                    {
+                        _current_sprite = Textures.hothead_theme;
+                        _bar_color = new Color(255, 93, 43);
+                    }
+                    else
+                    {
+                        _current_sprite = Textures.metalhead_theme;
+                        _bar_color = new Color(220, 123, 5);
+                    }
                 }
                 else if (monster is ShadowBrute)
                 {
@@ -146,27 +225,47 @@ namespace MiniBars.Framework.Rendering
                 }
                 else if (monster is Mummy)
                 {
-
+                    _current_sprite = Textures.mummy_theme;
+                    _bar_color = new Color(225, 203, 101);
                 }
                 else if (monster is DinoMonster)
                 {
-
+                    _current_sprite = Textures.pepperrex_theme;
+                    _bar_color = new Color(137, 180, 56);
                 }
                 else if (monster is Serpent)
                 {
-
+                    _current_sprite = Textures.serpent_theme;
+                    _bar_color = new Color(82, 251, 163);
+                    _height = -2;
                 }
                 else if (monster is DwarvishSentry)
                 {
-
-                }
-                else if (monster is HotHead)
-                {
-
+                    _current_sprite = Textures.dwarvishsentry_theme;
+                    _bar_color = new Color(172, 112, 105);
+                    _height = 14;
                 }
                 else if (monster is LavaLurk)
                 {
-
+                    _current_sprite = Textures.lavalurk_theme;
+                    _bar_color = new Color(220, 123, 5);
+                }
+                else if (monster.Name == "False Magma Cap")
+                {
+                    _current_sprite = Textures.falsemagmacap_theme;
+                    _bar_color = new Color(255, 242, 201);
+                }
+                /*
+                else if (monster is BigSlime bigslime)
+                {
+                    _current_sprite = Textures.greenslime_theme;
+                    _bar_color = new Color(97, 212, 69);
+                    _border_color = bigslime.hard;
+                }
+                */
+                else if (monster is Spiker)
+                {
+                    continue;
                 }
                 else
                 {
@@ -207,7 +306,7 @@ namespace MiniBars.Framework.Rendering
                         (int)_monsterPos.Y - monster.Sprite.SpriteHeight * Game1.pixelZoom - _height * Game1.pixelZoom,
                         _current_sprite.Width * Game1.pixelZoom,
                         _current_sprite.Height * Game1.pixelZoom),
-                    Color.White);
+                    _border_color);
             }
         }
     }
