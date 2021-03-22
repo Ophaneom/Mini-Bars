@@ -1,2 +1,1 @@
-﻿Add references to new sprites.
-Create the shrine sprites.
+﻿Create the hardmode bar themes.
