@@ -51,6 +51,20 @@ namespace MiniBars.Framework.Rendering
             magmasparker_theme,
             magmasprite_theme,
             tigerslime_theme;
+        public static Texture2D hardmode_bug,
+            hardmode_crab,
+            hardmode_duggy,
+            hardmode_dust,
+            hardmode_frostbat,
+            hardmode_squid,
+            hardmode_putridghost,
+            hardmode_skeleton,
+            hardmode_spider,
+            hardmode_lavacrab,
+            hardmode_metalhead,
+            hardmode_squidkid,
+            hardmode_shadowshaman,
+            hardmode_stickbug;
 
         public static Texture2D GetPixel()
         {
@@ -120,6 +134,22 @@ namespace MiniBars.Framework.Rendering
             magmasparker_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/magmasparker_theme.png", ContentSource.ModFolder);
             magmasprite_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/magmasprite_theme.png", ContentSource.ModFolder);
             tigerslime_theme = helper.Content.Load<Texture2D>("Assets/Themes/Volcano_Dungeon/tigerslime_theme.png", ContentSource.ModFolder);
+
+            //HARDMODE
+            hardmode_bug = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_bug.png", ContentSource.ModFolder);
+            hardmode_crab = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_crab.png", ContentSource.ModFolder);
+            hardmode_duggy = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_duggy.png", ContentSource.ModFolder);
+            hardmode_dust = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_dust.png", ContentSource.ModFolder);
+            hardmode_frostbat = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_frostbat.png", ContentSource.ModFolder);
+            hardmode_squid = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_squid.png", ContentSource.ModFolder);
+            hardmode_putridghost = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_putridghost.png", ContentSource.ModFolder);
+            hardmode_skeleton = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_skeleton.png", ContentSource.ModFolder);
+            hardmode_spider = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_spider.png", ContentSource.ModFolder);
+            hardmode_lavacrab = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_lavacrab.png", ContentSource.ModFolder);
+            hardmode_metalhead = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_metalhead.png", ContentSource.ModFolder);
+            hardmode_squidkid = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_squidkid.png", ContentSource.ModFolder);
+            hardmode_shadowshaman = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_shadowshaman.png", ContentSource.ModFolder);
+            hardmode_stickbug = helper.Content.Load<Texture2D>("Assets/Themes/HardMode/hardmode_stickbug.png", ContentSource.ModFolder);
         }
     }
 }
