@@ -2,9 +2,9 @@
   "Name": "Mini Bars",
   "Author": "Ophaneom",
   "Version": "1.0.0",
-  "Description": "EMPTY DESCRIPTION",
+  "Description": "A custom healthbar mod.",
   "UniqueID": "Ophaneom.MiniBars",
   "EntryDll": "MiniBars.dll",
   "MinimumApiVersion": "3.0.0",
-  "UpdateKeys": [  ]
+  "UpdateKeys": [ "Nexus:8329" ]
 }

@@ -20,12 +20,12 @@ namespace MiniBars.Framework.Rendering
 
             foreach (Monster monster in Game1.currentLocation.characters.OfType<Monster>())
             {
-                ModEntry.instance.Monitor.Log($"Name: {monster.Name}", LogLevel.Info);
                 if (monster.IsInvisible || !Utility.isOnScreen(monster.position, 3 * Game1.tileSize)) continue;
+
                 if ((monster.Position.X > Game1.player.Position.X + _verification_range ||
                     monster.Position.X < Game1.player.Position.X - _verification_range ||
                     monster.Position.Y > Game1.player.Position.Y + _verification_range ||
-                    monster.Position.Y < Game1.player.Position.Y - _verification_range) && 
+                    monster.Position.Y < Game1.player.Position.Y - _verification_range) &&
                     ModEntry.config.Range_Verification) continue;
 
 
