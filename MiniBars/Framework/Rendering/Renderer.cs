@@ -21,7 +21,7 @@ namespace MiniBars.Framework.Rendering
             foreach (Monster monster in Game1.currentLocation.characters.OfType<Monster>())
             {
                 ModEntry.instance.Monitor.Log($"Name: {monster.Name}", LogLevel.Info);
-                if (monster.IsInvisible) continue;
+                if (monster.IsInvisible || !Utility.isOnScreen(monster.position, 3 * Game1.tileSize)) continue;
                 if ((monster.Position.X > Game1.player.Position.X + _verification_range ||
                     monster.Position.X < Game1.player.Position.X - _verification_range ||
                     monster.Position.Y > Game1.player.Position.Y + _verification_range ||
@@ -378,6 +378,7 @@ namespace MiniBars.Framework.Rendering
                 {
                     _current_sprite = Textures.default_theme;
                     _bar_color = new Color(172, 50, 50);
+                    _hp_color = new Color(0, 0, 0, 200);
                 }
 
                 Vector2 _monsterPos = monster.getLocalPosition(Game1.viewport);
