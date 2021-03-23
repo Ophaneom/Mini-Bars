@@ -10,7 +10,7 @@ namespace MiniBars
     {
         public bool Simple_Bars { get; set; } = false;
         public bool Show_Monsters_HP { get; set; } = false;
-        public bool Show_Full_Life { get; set; } = false;
+        public bool Show_Full_Life { get; set; } = true;
         public bool Range_Verification { get; set; } = false;
         public int Distance { get; set; } = 100;
     }

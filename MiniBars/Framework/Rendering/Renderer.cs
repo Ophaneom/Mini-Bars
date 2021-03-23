@@ -38,7 +38,7 @@ namespace MiniBars.Framework.Rendering
                 float _current_max_health = Math.Max(monster.Health, monster.MaxHealth);
                 monster.MaxHealth = (int)_current_max_health;
 
-                if (_current_health >= _current_max_health && ModEntry.config.Show_Full_Life) continue;
+                if (_current_health >= _current_max_health && !ModEntry.config.Show_Full_Life) continue;
 
                 if (monster is GreenSlime slime)
                 {
@@ -97,6 +97,11 @@ namespace MiniBars.Framework.Rendering
                         _current_sprite = Textures.magmasparker_theme;
                         _bar_color = new Color(221, 250, 117);
                     }
+                    else if (monster.Name == "Iridium Bat")
+                    {
+                        _current_sprite = Textures.iridiumbat_theme;
+                        _bar_color = new Color(226, 72, 205);
+                    }
                     else if (monster.Name == "Haunted Skull")
                     {
                         _current_sprite = Textures.hauntedskull_theme;
@@ -128,7 +133,7 @@ namespace MiniBars.Framework.Rendering
                 }
                 else if (monster is Fly)
                 {
-                    if (monster.Name == "Mutant Fly")
+                    if (Game1.player.currentLocation.Name == "BugLand" || Game1.CurrentMineLevel > 120)
                     {
                         _current_sprite = Textures.mutantfly_theme;
                         _bar_color = new Color(0, 194, 31);
@@ -158,7 +163,7 @@ namespace MiniBars.Framework.Rendering
                 }
                 else if (monster is Grub)
                 {
-                    if (monster.Name == "Mutant Grub")
+                    if (Game1.player.currentLocation.Name == "BugLand" || Game1.CurrentMineLevel > 120)
                     {
                         _current_sprite = Textures.mutantgrub_theme;
                         _bar_color = new Color(75, 242, 63);
@@ -374,9 +379,16 @@ namespace MiniBars.Framework.Rendering
                     _current_sprite = Textures.default_theme;
                 }
 
+                if (Game1.player.currentLocation.Name == "CrimsonBadlands" || Game1.player.currentLocation.Name == "IridiumQuarry")
+                {
+                    _bar_color = new Color(192, 64, 45);
+                    _border_color = new Color(192, 64, 45);
+                }
+
                 if (ModEntry.config.Simple_Bars)
                 {
                     _current_sprite = Textures.default_theme;
+                    _border_color = Color.White;
                     _bar_color = new Color(172, 50, 50);
                     _hp_color = new Color(0, 0, 0, 200);
                 }
