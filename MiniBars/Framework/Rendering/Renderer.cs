@@ -20,6 +20,9 @@ namespace MiniBars.Framework.Rendering
 
             foreach (Monster monster in Game1.currentLocation.characters.OfType<Monster>())
             {
+                ModEntry.instance.Monitor.Log($"Monster name: {monster.Name}", LogLevel.Info);
+                ModEntry.instance.Monitor.Log($"Map name: {Game1.player.currentLocation.Name}", LogLevel.Info);
+
                 if (monster.IsInvisible || !Utility.isOnScreen(monster.position, 3 * Game1.tileSize)) continue;
 
                 if ((monster.Position.X > Game1.player.Position.X + _verification_range ||
@@ -39,6 +42,8 @@ namespace MiniBars.Framework.Rendering
                 monster.MaxHealth = (int)_current_max_health;
 
                 if (_current_health >= _current_max_health && !ModEntry.config.Show_Full_Life) continue;
+
+                if (Compatibility.BlackListedMonster(monster.Name)) continue;
 
                 if (monster is GreenSlime slime)
                 {
