@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Framework\Compatibility.cs" />
+    <Compile Include="Framework\Database.cs" />
     <Compile Include="Framework\Rendering\Renderer.cs" />
     <Compile Include="Framework\Rendering\Textures.cs" />
     <Compile Include="ModEntry.cs" />

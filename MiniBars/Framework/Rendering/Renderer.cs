@@ -20,9 +20,6 @@ namespace MiniBars.Framework.Rendering
 
             foreach (Monster monster in Game1.currentLocation.characters.OfType<Monster>())
             {
-                ModEntry.instance.Monitor.Log($"Monster name: {monster.Name}", LogLevel.Info);
-                ModEntry.instance.Monitor.Log($"Map name: {Game1.player.currentLocation.Name}", LogLevel.Info);
-
                 if (monster.IsInvisible || !Utility.isOnScreen(monster.position, 3 * Game1.tileSize)) continue;
 
                 if ((monster.Position.X > Game1.player.Position.X + _verification_range ||
@@ -390,7 +387,7 @@ namespace MiniBars.Framework.Rendering
                     _border_color = new Color(192, 64, 45);
                 }
 
-                if (ModEntry.config.Simple_Bars)
+                if (ModEntry.config.Only_One_Theme)
                 {
                     _current_sprite = Textures.default_theme;
                     _border_color = Color.White;
@@ -401,20 +398,20 @@ namespace MiniBars.Framework.Rendering
                 Vector2 _monsterPos = monster.getLocalPosition(Game1.viewport);
 
                 Game1.spriteBatch.Draw(
-                    Textures.bar_background,
+                    Textures.GetPixel(),
                     new Rectangle(
-                        (int)_monsterPos.X - (Textures.bar_background.Width * Game1.pixelZoom) / 2 + (monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2,
-                        (int)_monsterPos.Y - monster.Sprite.SpriteHeight * Game1.pixelZoom - _height * Game1.pixelZoom,
-                        Textures.bar_background.Width * Game1.pixelZoom,
-                        Textures.bar_background.Height * Game1.pixelZoom),
-                    Color.White);
+                        (int)_monsterPos.X - (Textures.GetPixel().Width * Game1.pixelZoom) / 2 + (monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
+                        (int)_monsterPos.Y - monster.Sprite.SpriteHeight * Game1.pixelZoom - _height * Game1.pixelZoom + 8 * Game1.pixelZoom,
+                        (Textures.GetPixel().Width * Game1.pixelZoom) * Database.bar_size,
+                        (Textures.GetPixel().Height * Game1.pixelZoom) * 4),
+                    new Color(0,0,0,135));
 
                 Game1.spriteBatch.Draw(
                     Textures.GetPixel(),
                     new Rectangle(
-                        (int)_monsterPos.X - (Textures.GetPixel().Width * Game1.pixelZoom) / 2 + (monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - 4 * Game1.pixelZoom,
+                        (int)_monsterPos.X - (Textures.GetPixel().Width * Game1.pixelZoom) / 2 + (monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
                         (int)_monsterPos.Y - monster.Sprite.SpriteHeight * Game1.pixelZoom - _height * Game1.pixelZoom + 8 * Game1.pixelZoom,
-                        (Textures.GetPixel().Width * Game1.pixelZoom) * (int)((_current_health / _current_max_health) * 20),
+                        (Textures.GetPixel().Width * Game1.pixelZoom) * (int)((_current_health / _current_max_health) * Database.bar_size),
                         (Textures.GetPixel().Height * Game1.pixelZoom) * 4),
                     _bar_color);
 
@@ -429,6 +426,7 @@ namespace MiniBars.Framework.Rendering
 
                 if (!ModEntry.config.Show_Monsters_HP)
                 {
+                    if (ModEntry.config.Bars_Theme == 2) continue;
                     Game1.spriteBatch.Draw(
                     Textures.hp_sprite,
                     new Rectangle(
