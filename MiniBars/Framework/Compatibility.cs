@@ -16,14 +16,11 @@ namespace MiniBars.Framework
         {
             if (Game1.player.currentLocation.Name == "UnderwaterBeach")
             {
-                if (_monster_name == "Serpent") return true;
-                else if (_monster_name == "Rock Crab") return true;
-                else return false;
+                return _monster_name is "Serpent" or "Rock Crab";
             }
             else if (Game1.player.currentLocation.Name == "UnderwaterMountain")
             {
-                if (_monster_name == "Pepper Rex") return true;
-                else return false;
+                return _monster_name is "Pepper Rex";
             }
             return false;
         }

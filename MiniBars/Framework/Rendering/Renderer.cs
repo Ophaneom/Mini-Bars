@@ -21,6 +21,7 @@ namespace MiniBars.Framework.Rendering
             foreach (Monster monster in Game1.currentLocation.characters.OfType<Monster>())
             {
                 if (monster.IsInvisible || !Utility.isOnScreen(monster.position, 3 * Game1.tileSize)) continue;
+                if (Compatibility.BlackListedMonster(monster.Name)) continue;
 
                 if ((monster.Position.X > Game1.player.Position.X + _verification_range ||
                     monster.Position.X < Game1.player.Position.X - _verification_range ||
@@ -39,8 +40,6 @@ namespace MiniBars.Framework.Rendering
                 monster.MaxHealth = (int)_current_max_health;
 
                 if (_current_health >= _current_max_health && !ModEntry.config.Show_Full_Life) continue;
-
-                if (Compatibility.BlackListedMonster(monster.Name)) continue;
 
                 if (monster is GreenSlime slime)
                 {
@@ -398,21 +397,21 @@ namespace MiniBars.Framework.Rendering
                 Vector2 _monsterPos = monster.getLocalPosition(Game1.viewport);
 
                 Game1.spriteBatch.Draw(
-                    Textures.GetPixel(),
+                    Textures.Pixel,
                     new Rectangle(
-                        (int)_monsterPos.X - (Textures.GetPixel().Width * Game1.pixelZoom) / 2 + (monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
+                        (int)_monsterPos.X - (Textures.Pixel.Width * Game1.pixelZoom) / 2 + (monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
                         (int)_monsterPos.Y - monster.Sprite.SpriteHeight * Game1.pixelZoom - _height * Game1.pixelZoom + 8 * Game1.pixelZoom,
-                        (Textures.GetPixel().Width * Game1.pixelZoom) * Database.bar_size,
-                        (Textures.GetPixel().Height * Game1.pixelZoom) * 4),
+                        (Textures.Pixel.Width * Game1.pixelZoom) * Database.bar_size,
+                        (Textures.Pixel.Height * Game1.pixelZoom) * 4),
                     new Color(0,0,0,135));
 
                 Game1.spriteBatch.Draw(
-                    Textures.GetPixel(),
+                    Textures.Pixel,
                     new Rectangle(
-                        (int)_monsterPos.X - (Textures.GetPixel().Width * Game1.pixelZoom) / 2 + (monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
+                        (int)_monsterPos.X - (Textures.Pixel.Width * Game1.pixelZoom) / 2 + (monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
                         (int)_monsterPos.Y - monster.Sprite.SpriteHeight * Game1.pixelZoom - _height * Game1.pixelZoom + 8 * Game1.pixelZoom,
-                        (Textures.GetPixel().Width * Game1.pixelZoom) * (int)((_current_health / _current_max_health) * Database.bar_size),
-                        (Textures.GetPixel().Height * Game1.pixelZoom) * 4),
+                        (Textures.Pixel.Width * Game1.pixelZoom) * (int)((_current_health / _current_max_health) * Database.bar_size),
+                        (Textures.Pixel.Height * Game1.pixelZoom) * 4),
                     _bar_color);
 
                 Game1.spriteBatch.Draw(
