@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using StardewModdingAPI;
-using StardewModdingAPI.Events;
-using StardewValley;
-using StardewValley.Monsters;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using MiniBars.Framework;
-
-namespace MiniBars.Framework
+﻿namespace MiniBars.Framework
 {
     public class Database
     {
@@ -19,13 +8,7 @@ namespace MiniBars.Framework
 
         public static void GetTheme()
         {
-            if (ModEntry.config.Bars_Theme == 0)
-            {
-                bars_theme = "Normal_Themes";
-                distance_x = 4;
-                bar_size = 20;
-            }
-            else if (ModEntry.config.Bars_Theme == 2)
+            if (ModEntry.config.Bars_Theme == 2)
             {
                 bars_theme = "Simple_Themes";
                 distance_x = 15;
