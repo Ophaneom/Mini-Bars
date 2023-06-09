@@ -6,6 +6,7 @@ using StardewValley;
 using StardewValley.Monsters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Threading;
 
 namespace MiniBars.Framework.Rendering
 {
@@ -13,7 +14,7 @@ namespace MiniBars.Framework.Rendering
     {
         private static int _verification_range = 100 * Game1.pixelZoom;
 
-    public static void OnRendered(object sender, RenderedWorldEventArgs e)
+        public static void OnRendered(object sender, RenderedWorldEventArgs e)
         {
             if (!Context.IsWorldReady) return;
             if (Game1.activeClickableMenu != null || Game1.currentMinigame != null) return;
@@ -36,7 +37,7 @@ namespace MiniBars.Framework.Rendering
 
                 string _prefix = "";
                 if (_monster.isHardModeMonster) _prefix = "Hardmode";
-                BarInformations _informations = Textures.barInformations.Find(x => x.monsterName == _prefix + _monster.Name) ?? 
+                BarInformations _informations = Textures.barInformations.Find(x => x.monsterName == _prefix + _monster.Name) ??
                     Textures.barInformations.Find(x => x.monsterType == _monster.GetType().Name) ??
                     Textures.barInformations.Find(x => x.monsterType == "Default Theme");
                 if (_monster is GreenSlime _slime)
@@ -108,21 +109,21 @@ namespace MiniBars.Framework.Rendering
                 }
 
                 Game1.spriteBatch.Draw(
-                    Textures.GetPixel(),
+                    Textures.Pixel,
                     new Rectangle(
-                (int)_monsterPos.X - (Textures.GetPixel().Width * Game1.pixelZoom) / 2 + (_monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
+                (int)_monsterPos.X - (Textures.Pixel.Width * Game1.pixelZoom) / 2 + (_monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
                 (int)_monsterPos.Y - _monster.Sprite.SpriteHeight * Game1.pixelZoom - _height * Game1.pixelZoom + 8 * Game1.pixelZoom,
-                        (Textures.GetPixel().Width * Game1.pixelZoom) * Database.bar_size,
-                        (Textures.GetPixel().Height * Game1.pixelZoom) * 4),
+                        (Textures.Pixel.Width * Game1.pixelZoom) * Database.bar_size,
+                        (Textures.Pixel.Height * Game1.pixelZoom) * 4),
                     new Color(0, 0, 0, 135));
 
                 Game1.spriteBatch.Draw(
-                    Textures.GetPixel(),
+                    Textures.Pixel,
                     new Rectangle(
-                        (int)_monsterPos.X - (Textures.GetPixel().Width * Game1.pixelZoom) / 2 + (_monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
+                        (int)_monsterPos.X - (Textures.Pixel.Width * Game1.pixelZoom) / 2 + (_monster.Sprite.SpriteWidth * Game1.pixelZoom) / 2 - Database.distance_x * Game1.pixelZoom,
                         (int)_monsterPos.Y - _monster.Sprite.SpriteHeight * Game1.pixelZoom - _height * Game1.pixelZoom + 8 * Game1.pixelZoom,
-                        (Textures.GetPixel().Width * Game1.pixelZoom) * (int)((_current_health / _current_max_health) * Database.bar_size),
-                        (Textures.GetPixel().Height * Game1.pixelZoom) * 4),
+                        (Textures.Pixel.Width * Game1.pixelZoom) * (int)((_current_health / _current_max_health) * Database.bar_size),
+                        (Textures.Pixel.Height * Game1.pixelZoom) * 4),
                     _bar_color);
 
                 Game1.spriteBatch.Draw(

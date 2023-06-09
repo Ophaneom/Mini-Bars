@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.IO;
 using System;
+using System.Threading;
 
 namespace MiniBars.Framework.Rendering
 {
@@ -14,12 +15,14 @@ namespace MiniBars.Framework.Rendering
         public static List<BarInformations> barInformations = new List<BarInformations>();
         public static Texture2D hpSprite;
 
-        public static Texture2D GetPixel()
+        private static Lazy<Texture2D> _pixelLazy = new(() =>
         {
             Texture2D _pixel = new Texture2D(Game1.graphics.GraphicsDevice, 1, 1);
             _pixel.SetData(new[] { Color.White });
             return _pixel;
-        }
+        });
+
+        public static Texture2D Pixel => _pixelLazy.Value;
 
         public static void LoadTextures()
         {
@@ -41,7 +44,6 @@ namespace MiniBars.Framework.Rendering
                 barInformations.Add(_informations);
                 Monitor.Log($"Loaded informations from: {_fileName}", LogLevel.Trace);
             }
-
             hpSprite = ModEntry.instance.Helper.ModContent.Load<Texture2D>($"assets/hp_sprite.png");
 
             BarInformations _defaultTheme;
